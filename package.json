@@ -1,0 +1,9 @@
+{
+  "name": "soccer-poll-server",
+  "version": "1.0.0",
+  "description": "The soccer poll server and API",
+  "main": "index.ts",
+  "repository": "https://github.com/lipeavelar/soccer-poll-backend",
+  "author": "Felipe Avelar <lipeavelar@gmail.com>",
+  "license": "MIT"
+}
