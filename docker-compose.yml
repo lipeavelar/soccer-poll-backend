@@ -9,8 +9,8 @@ services:
       POSTGRES_USER: ${DB_USER}
       POSTGRES_PASSWORD: ${DB_PASS}
     volumes:
-      - ./src/config/db/scripts:/scripts
-      - ./src/config/db/scripts/init.sql:/docker-entrypoint-initdb.d/init.sql
+      - ./src/db/scripts:/scripts
+      - ./src/db/scripts/init.sql:/docker-entrypoint-initdb.d/init.sql
     networks:
       - database
   app:
@@ -21,8 +21,11 @@ services:
       - .:/usr/app
       - /usr/app/node_modules
     ports:
-      - "3000:3000"
+      - '3000:3000'
     depends_on:
       - db
     environment:
       - NODE_ENV=development
+    networks:
+      - database
+      - queue

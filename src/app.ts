@@ -1,5 +1,8 @@
 import express from 'express'
 import cors from 'cors'
+import { createConnection } from 'typeorm'
+
+import 'reflect-metadata'
 
 import routes from './routes'
 
@@ -19,7 +22,9 @@ class App {
     this.express.use(cors())
   }
 
-  private database(): void {}
+  private database(): void {
+    createConnection()
+  }
 
   private routes(): void {
     this.express.use(routes)
