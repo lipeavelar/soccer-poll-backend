@@ -11,6 +11,8 @@ services:
     volumes:
       - ./src/db/scripts:/scripts
       - ./src/db/scripts/init.sql:/docker-entrypoint-initdb.d/init.sql
+    ports:
+      - '5432:5432'
     networks:
       - database
   app:
